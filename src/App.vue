@@ -1,25 +1,28 @@
 <script setup>
-  import {ref} from 'vue'
+import {computed, ref} from 'vue'
 
   let counter = ref(0);
   const reset = () => counter.value = 0;
   const increment = () => counter.value++;
   const decrement = () => counter.value--;
-  const counterLimit = () => {
-    if (counter.value < 0)
-      return 'red';
-    else if (counter.value > 0)
-      return 'green';
 
-    return '#000000';
-  }
+  const changeClassColor = computed(() => {
+    if (counter.value < 0)
+      return 'negative';
+
+    if (counter.value > 0)
+      return 'positive';
+
+    return 'zero';
+  })
+
 </script>
 
 <template>
   <div class="container">
     <div class="counter">
 
-      <h2 :style="{color: counterLimit()}" class="counter__label">
+      <h2 :class="changeClassColor" class="counter__label">
         {{ counter }}
       </h2>
 
@@ -71,6 +74,16 @@
 .counter__button:hover {
   cursor: pointer;
   transform:translate(0, -5px);
+}
+
+.positive {
+  color: #00ff00;
+}
+.negative {
+  color: #ff0000;
+}
+.zero {
+  color: #000000
 }
 
 </style>
