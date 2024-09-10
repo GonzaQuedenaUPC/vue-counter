@@ -34,6 +34,43 @@
 </template>
 
 <style scoped>
- 
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.counter {
+  box-shadow: 0 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 1rem;
+  text-align: center;
+}
+
+.counter__label {
+  margin-bottom: 20px;
+}
+
+.counter__button {
+  padding: 10px 20px;
+  border: none;
+  margin: 15px 10px 10px 10px;
+  border-radius: 99999px;
+  transition: .3s ease;
+}
+
+.counter__button--increment {
+  box-shadow: 0 0 20px 0 #00ff00;
+}
+.counter__button--decrement {
+  box-shadow: 0 0 20px 0 #ff0000;
+}
+.counter__button--reset {
+  box-shadow: 0 0 20px 0 #0000ff;
+}
+.counter__button:hover {
+  cursor: pointer;
+  transform:translate(0, -5px);
+}
 
 </style>
